@@ -20,11 +20,11 @@ export class App extends Component {
     return this.state.contacts.find(contacts => contacts.name === name)
   }
   addContact = ({ name, number }) => {
-    const contact = {
-      id: nanoid(),
-      name,
-      number
-    }
+    // const contact = {
+    //   id: nanoid(),
+    //   name,
+    //   number
+    // }
     
     if (this.checkName(name)) {
       return alert(`${name} is already in contacts`)
