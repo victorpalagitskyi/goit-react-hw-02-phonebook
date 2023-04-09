@@ -29,7 +29,7 @@ export  class ContactForm extends Component {
   render() {
     return (
       <form  onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}> Name</label>
+        <label> Name</label>
             <input
         style={{
           fontSize: 40,
@@ -45,7 +45,7 @@ export  class ContactForm extends Component {
           required
         />
 
-        <label htmlFor={this.numberInputId}> Number</label>
+        <label> Number</label>
         <input
           style={{
           fontSize: 40,
