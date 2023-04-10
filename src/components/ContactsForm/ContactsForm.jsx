@@ -30,7 +30,7 @@ export  class ContactForm extends Component {
     return (
       <form  onSubmit={this.handleSubmit}>
         <label> Name</label>
-            <input
+        <input
         style={{
           fontSize: 40,
           color: '#010101'

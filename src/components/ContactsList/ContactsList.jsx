@@ -1,4 +1,4 @@
-export const Contacts = ({ contacts, onDeleteContact }) => {
+export const ContactsList = ({ contacts, onDeleteContact }) => {
     console.log(contacts)
   return (
       <ul style = {{
