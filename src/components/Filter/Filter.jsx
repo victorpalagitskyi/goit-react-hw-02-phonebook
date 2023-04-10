@@ -3,7 +3,9 @@ export const Filter = ({ value, onChange }) => {
     <div  style={{
           fontSize: 40,
           color: '#010101'
-        }}>
+      }}>
+          <label>
+           {' '}
         <p>Find contacts by name</p>
           <input
           style={{
@@ -14,6 +16,7 @@ export const Filter = ({ value, onChange }) => {
           value={value}
           onChange={onChange}
         />
+      </label>
     </div>
   );
 };

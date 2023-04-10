@@ -15,7 +15,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: '',
+    filter: ''
   }
   checkName = name => {
     return this.state.contacts.find(contacts => contacts.name === name)
@@ -26,8 +26,8 @@ export class App extends Component {
       name,
       number
     };
-    const checkName= this.checkName(name)
-    if (checkName) {
+  
+    if (this.checkName(name)) {
       return alert(`${name} is already in contacts`)
     } else
       this.setState(({ contacts }) => (
@@ -36,16 +36,23 @@ export class App extends Component {
         })
       )
   }
-  changeFilter = (event) => { 
-    this.setState({filter:event.currentTarget.value})
+
+  changeFilter = e => { 
+    this.setState({filter: e.currentTarget.value})
   } 
+   filtredContacts = () => {
+    const { filter, contacts } = this.state;
+    return contacts.filter(contact =>
+      contact.name.includes(filter)
+    );
+  };
+
   deleteContact = id => {
     this.setState(prevState => ({
-      contact: prevState.contacts.filter(contacts => contacts.id !== id)
+      contacts: prevState.contacts.filter(contact => contact.id !== id)
     }))
   }
- 
-
+  
     componentDidMount() {
     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
 
@@ -81,7 +88,7 @@ export class App extends Component {
               value={this.state.filter}
               onChange={this.changeFilter} />
             <ContactsList
-              contacts={this.state.contacts} 
+              contacts={this.filtredContacts()} 
               onDeleteContact={this.deleteContact}
             />
           </div>
